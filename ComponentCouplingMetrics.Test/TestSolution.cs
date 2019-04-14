@@ -3,10 +3,10 @@ namespace ComponentCouplingMetrics.Test
     // example structure taken from "CleanArchitecture page 122
     public class TestSolution : Solution
     {
-        public readonly Project componentA = new Project("Ca");
-        public readonly Project componentB = new Project("Cb");
-        public readonly Project componentC = new Project("Cc");
-        public readonly Project componentD = new Project("Cd");
+        private readonly Component componentA = new Component("Ca");
+        private readonly Component componentB = new Component("Cb");
+        public readonly Component componentC = new Component("Cc");
+        private readonly Component componentD = new Component("Cd");
         
         public TestSolution()
         {

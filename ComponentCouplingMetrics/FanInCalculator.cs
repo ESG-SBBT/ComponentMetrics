@@ -7,13 +7,16 @@ namespace ComponentCouplingMetrics
     public class FanInCalculator
     {
         private readonly Solution solution;
+        private IEnumerable<Class> allClasses;
 
         public FanInCalculator(Solution solution)
         {
             this.solution = solution;
+            
+            CollectAllClasses();
         }
 
-        public int CalculateFor(Project component)
+        public int CalculateFor(Component component)
         {
             var allClassesFromOtherComponents = DetermineAllClassesFromOtherComponents();
 
@@ -26,8 +29,7 @@ namespace ComponentCouplingMetrics
 
             ImmutableList<Class> DetermineAllClassesFromOtherComponents()
             {
-                return this.solution.Projects
-                    .SelectMany(p => p.Classes)
+                return this.allClasses
                     .Except(component.Classes)
                     .ToImmutableList();
             }
@@ -36,6 +38,12 @@ namespace ComponentCouplingMetrics
             {
                 return allClassesFromOtherComponents.Count(c => c.Dependencies.Contains(componentClass));
             }
+        }
+
+        private void CollectAllClasses()
+        {
+            this.allClasses = this.solution.Components
+                .SelectMany(p => p.Classes);
         }
     }
 }

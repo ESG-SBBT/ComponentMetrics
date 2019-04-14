@@ -5,17 +5,17 @@ using System.Linq;
 
 namespace ComponentCouplingMetrics
 {
-    public class Project
+    public class Component
     {
         public string Name { get; }
 
-        public ImmutableList<Project> Dependencies => ImmutableList.CreateRange(this.dependencies);
+        public ImmutableList<Component> Dependencies => ImmutableList.CreateRange(this.dependencies);
         public ImmutableList<Class> Classes => ImmutableList.CreateRange(this.classes);
 
-        private readonly IList<Project> dependencies = new List<Project>();
+        private readonly IList<Component> dependencies = new List<Component>();
         private readonly IList<Class> classes = new List<Class>();
 
-        public Project(string name)
+        public Component(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new InvalidName();
@@ -34,12 +34,12 @@ namespace ComponentCouplingMetrics
             this.classes.Add(cls);
         }
 
-        public void AddDependencyOn(Project project)
+        public void AddDependencyOn(Component component)
         {
-            if (project == this)
+            if (component == this)
                 throw new SelfReferencesNotAllowed();
 
-            this.dependencies.Add(project);
+            this.dependencies.Add(component);
         }
 
         public sealed class SelfReferencesNotAllowed : Exception

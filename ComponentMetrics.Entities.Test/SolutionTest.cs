@@ -8,31 +8,31 @@ namespace ComponentMetrics.Entities.Test
     public class SolutionTest
     {
         [TestMethod]
-        [ExpectedException(typeof(Solution.InvalidProject))]
-        public void GivenNull_AddProjectFails()
+        [ExpectedException(typeof(Solution.InvalidComponent))]
+        public void GivenNull_AddComponentFails()
         {
             new Solution().Add(null);
         }
 
         [TestMethod]
-        public void AddOneProject()
+        public void AddOneComponent()
         {
-            var project = new Project("p1");
+            var component = new Component("test component");
             
             var solution = new Solution();
-            solution.Add(project);
+            solution.Add(component);
             
-            Assert.AreSame(project, solution.Projects.Single());
+            Assert.AreSame(component, solution.Components.Single());
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Solution.DuplicateProject))]
-        public void GivenProjectWithSameName_AddProjectFails()
+        [ExpectedException(typeof(Solution.DuplicateComponent))]
+        public void GivenComponentWithSameName_AddComponentFails()
         {
             var solution = new Solution();
-            solution.Add(new Project("p1"));
+            solution.Add(new Component("c1"));
             
-            solution.Add(new Project("p1"));
+            solution.Add(new Component("c1"));
         }
     }
 }

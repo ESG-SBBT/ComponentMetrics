@@ -8,26 +8,26 @@ namespace ComponentCouplingMetrics
 {
     public class Solution
     {
-        public ImmutableList<Project> Projects => ImmutableList.CreateRange(this.projects);
+        public ImmutableList<Component> Components => ImmutableList.CreateRange(this.components);
 
-        private readonly IList<Project> projects = new List<Project>();
+        private readonly IList<Component> components = new List<Component>();
 
-        public void Add(Project project)
+        public void Add(Component component)
         {
-            if (project == null)
-                throw new InvalidProject();
+            if (component == null)
+                throw new InvalidComponent();
 
-            if (this.projects.Any(p => p.Name == project.Name))
-                throw new DuplicateProject();
+            if (this.components.Any(p => p.Name == component.Name))
+                throw new DuplicateComponent();
             
-            this.projects.Add(project);
+            this.components.Add(component);
         }
 
-        public sealed class InvalidProject : Exception
+        public sealed class InvalidComponent : Exception
         {
         }
 
-        public sealed class DuplicateProject : Exception
+        public sealed class DuplicateComponent : Exception
         {
         }
     }

@@ -1,12 +1,14 @@
-namespace ComponentCouplingMetrics.Test
+using ComponentCouplingMetrics;
+
+namespace TestData
 {
     // example structure taken from "CleanArchitecture page 122
     public class TestSolution : Solution
     {
-        private readonly Component componentA = new Component("Ca");
-        private readonly Component componentB = new Component("Cb");
+        public readonly Component componentA = new Component("Ca");
+        public readonly Component componentB = new Component("Cb");
         public readonly Component componentC = new Component("Cc");
-        private readonly Component componentD = new Component("Cd");
+        public readonly Component componentD = new Component("Cd");
         
         public TestSolution()
         {

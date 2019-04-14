@@ -15,6 +15,7 @@
     <ItemGroup>
       <ProjectReference Include="..\ComponentCouplingMetrics\ComponentCouplingMetrics.csproj" />
       <ProjectReference Include="..\ComponentMetrics.Entities\ComponentMetrics.Entities.csproj" />
+      <ProjectReference Include="..\TestData\TestData.csproj" />
     </ItemGroup>
 
 </Project>

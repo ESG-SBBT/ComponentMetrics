@@ -23,6 +23,13 @@ namespace ComponentCouplingMetrics
             this.components.Add(component);
         }
 
+        public ImmutableList<Class> CollectAllClasses()
+        {
+            return this.Components
+                .SelectMany(p => p.Classes)
+                .ToImmutableList();
+        }
+
         public sealed class InvalidComponent : Exception
         {
         }

@@ -42,8 +42,7 @@ namespace ComponentCouplingMetrics
 
         private void CollectAllClasses()
         {
-            this.allClasses = this.solution.Components
-                .SelectMany(p => p.Classes);
+            this.allClasses = this.solution.CollectAllClasses();
         }
     }
 }

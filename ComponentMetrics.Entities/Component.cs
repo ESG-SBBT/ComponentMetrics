@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 
-namespace ComponentCouplingMetrics
+namespace ComponentMetrics.Entities
 {
     public class Component
     {
         public string Name { get; }
 
         public ImmutableList<Component> Dependencies => ImmutableList.CreateRange(this.dependencies);
-        public ImmutableList<Class> Classes => ImmutableList.CreateRange(this.classes);
+        public IEnumerable<Class> Classes => ImmutableList.CreateRange(this.classes);
 
         private readonly IList<Component> dependencies = new List<Component>();
         private readonly IList<Class> classes = new List<Class>();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
+using ComponentMetrics.Entities;
 
 namespace ComponentCouplingMetrics
 {
@@ -20,12 +21,7 @@ namespace ComponentCouplingMetrics
         {
             var allClassesFromOtherComponents = DetermineAllClassesFromOtherComponents();
 
-            var fanIn = 0;
-            
-            foreach (var componentClass in component.Classes)
-                fanIn += CountIncomingDependenciesOn(componentClass);
-            
-            return fanIn;
+            return component.Classes.Sum(IncomingDependencies);
 
             ImmutableList<Class> DetermineAllClassesFromOtherComponents()
             {
@@ -34,7 +30,7 @@ namespace ComponentCouplingMetrics
                     .ToImmutableList();
             }
 
-            int CountIncomingDependenciesOn(Class componentClass)
+            int IncomingDependencies(Class componentClass)
             {
                 return allClassesFromOtherComponents.Count(c => c.Dependencies.Contains(componentClass));
             }

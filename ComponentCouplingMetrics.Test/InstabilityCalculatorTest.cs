@@ -12,7 +12,7 @@ namespace ComponentCouplingMetrics.Test
             var solution = new TestSolution();
             var instability = new InstabilityCalculator(solution);
 
-            Assert.AreEqual(0.25, instability.CalculateFor(solution.componentC));
+            Assert.AreEqual(0.25, instability.CalculateFor(solution.ComponentC));
         }
     }
 }

@@ -1,5 +1,4 @@
 using System.Linq;
-using ComponentCouplingMetrics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ComponentMetrics.Entities.Test
@@ -11,7 +10,7 @@ namespace ComponentMetrics.Entities.Test
         [ExpectedException(typeof(Class.InvalidName))]
         public void ClassNameCannotBeEmpty()
         {
-            new Class("   ");
+            var unused = new Class("   ");
         }
         
         [TestMethod]

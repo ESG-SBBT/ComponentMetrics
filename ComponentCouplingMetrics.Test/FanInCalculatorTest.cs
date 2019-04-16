@@ -1,3 +1,4 @@
+using ComponentMetrics.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestData;
 
@@ -17,17 +18,17 @@ namespace ComponentCouplingMetrics.Test
 
         public FanInCalculatorTest()
         {
-            component1 = new Component("component1");
-            c1 = new Class("c1");
-            component1.Add(c1);
-            
-            component2 = new Component("component2");
-            c2 = new Class("c2");
-            component2.Add(c2);
-            
-            solution = new Solution();
-            solution.Add(component1);
-            solution.Add(component2);
+            this.component1 = new Component("component1");
+            this.c1 = new Class("c1");
+            this.component1.Add(this.c1);
+
+            this.component2 = new Component("component2");
+            this.c2 = new Class("c2");
+            this.component2.Add(this.c2);
+
+            this.solution = new Solution();
+            this.solution.Add(this.component1);
+            this.solution.Add(this.component2);
         }
         
         [TestMethod]
@@ -35,33 +36,33 @@ namespace ComponentCouplingMetrics.Test
         {
             CreateCalculator();
 
-            AssertFanIn(component1, 0);
-            AssertFanIn(component2, 0);
+            AssertFanIn(this.component1, 0);
+            AssertFanIn(this.component2, 0);
         }
 
         [TestMethod]
         public void ExactlyOneIncomingDependency()
         {
-            component1.AddDependencyOn(component2);
-            c1.AddDependencyOn(c2);
+            this.component1.AddDependencyOn(this.component2);
+            this.c1.AddDependencyOn(this.c2);
 
             CreateCalculator();
             
-            AssertFanIn(component1, 0);
-            AssertFanIn(component2, 1);
+            AssertFanIn(this.component1, 0);
+            AssertFanIn(this.component2, 1);
         }
 
         private void CreateCalculator()
         {
-            calculator = new FanInCalculator(solution);
+            this.calculator = new FanInCalculator(this.solution);
         }
 
         [TestMethod]
         public void Integration()
         {
-            var solution = new TestSolution();
+            var testSolution = new TestSolution();
 
-            var fanIn = new FanInCalculator(solution).CalculateFor(solution.componentC);
+            var fanIn = new FanInCalculator(testSolution).CalculateFor(testSolution.ComponentC);
             
             Assert.AreEqual(3, fanIn);
         }

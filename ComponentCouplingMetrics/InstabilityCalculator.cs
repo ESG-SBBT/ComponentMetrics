@@ -1,3 +1,5 @@
+using ComponentMetrics.Entities;
+
 namespace ComponentCouplingMetrics
 {
     public class InstabilityCalculator
@@ -13,10 +15,10 @@ namespace ComponentCouplingMetrics
 
         public double CalculateFor(Component component)
         {
-            var fanIn = fanInCalculator.CalculateFor(component);
-            var fanOut = fanOutCalculator.CalculatorFor(component);
+            var fanIn = this.fanInCalculator.CalculateFor(component);
+            var fanOut = this.fanOutCalculator.CalculatorFor(component);
             
-            return fanOut / (fanIn + fanOut);
+            return fanOut / (double)(fanIn + fanOut);
         }
     }
 }

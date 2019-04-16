@@ -1,6 +1,5 @@
 using System.Collections.Immutable;
 using System.Linq;
-using ComponentCouplingMetrics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestData;
 

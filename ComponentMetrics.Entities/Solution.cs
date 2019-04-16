@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
-namespace ComponentCouplingMetrics
+namespace ComponentMetrics.Entities
 {
     public class Solution
     {
-        public ImmutableList<Component> Components => ImmutableList.CreateRange(this.components);
+        public IEnumerable<Component> Components => ImmutableList.CreateRange(this.components);
 
         private readonly IList<Component> components = new List<Component>();
 
@@ -23,9 +22,9 @@ namespace ComponentCouplingMetrics
             this.components.Add(component);
         }
 
-        public ImmutableList<Class> CollectAllClasses()
+        public IEnumerable<Class> CollectAllClasses()
         {
-            return this.Components
+            return Components
                 .SelectMany(p => p.Classes)
                 .ToImmutableList();
         }

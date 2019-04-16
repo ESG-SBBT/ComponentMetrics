@@ -1,3 +1,4 @@
+using ComponentMetrics.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestData;
 
@@ -11,31 +12,31 @@ namespace ComponentCouplingMetrics.Test
 
         public FanOutCalculatorTest()
         {
-            solution = new TestSolution();
-            fanOut = new FanOutCalculator();
+            this.solution = new TestSolution();
+            this.fanOut = new FanOutCalculator();
         }
         
         [TestMethod]
         public void GivenNoOutgoingDependencies_FanOutIsZero()
         {
-            AssertFanOut(solution.componentD, 0);
+            AssertFanOut(this.solution.ComponentD, 0);
         }
 
         [TestMethod]
         public void GivenOneClassWithOneOutgoingDependency_FanOutIsOne()
         {
-            AssertFanOut(solution.componentB, 1);
+            AssertFanOut(this.solution.ComponentB, 1);
         }
 
         [TestMethod]
         public void GivenTwoClassesWithOutgoingDependencies_FanOutIsTwo()
         {
-            AssertFanOut(solution.componentA, 2);
+            AssertFanOut(this.solution.ComponentA, 2);
         }
 
         private void AssertFanOut(Component component, int expectedFanOut)
         {
-            var actualFanOut = fanOut.CalculatorFor(component);
+            var actualFanOut = this.fanOut.CalculatorFor(component);
             
             Assert.AreEqual(expectedFanOut, actualFanOut);
         }

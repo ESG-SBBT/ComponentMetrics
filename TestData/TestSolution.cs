@@ -1,14 +1,14 @@
-using ComponentCouplingMetrics;
+using ComponentMetrics.Entities;
 
 namespace TestData
 {
     // example structure taken from "CleanArchitecture page 122
     public class TestSolution : Solution
     {
-        public readonly Component componentA = new Component("Ca");
-        public readonly Component componentB = new Component("Cb");
-        public readonly Component componentC = new Component("Cc");
-        public readonly Component componentD = new Component("Cd");
+        public readonly Component ComponentA = new Component("Ca");
+        public readonly Component ComponentB = new Component("Cb");
+        public readonly Component ComponentC = new Component("Cc");
+        public readonly Component ComponentD = new Component("Cd");
         
         public TestSolution()
         {
@@ -19,28 +19,28 @@ namespace TestData
 
         private void AddComponentDependencies()
         {
-            componentA.AddDependencyOn(componentC);
-            componentB.AddDependencyOn(componentC);
-            componentC.AddDependencyOn(componentD);
+            this.ComponentA.AddDependencyOn(this.ComponentC);
+            this.ComponentB.AddDependencyOn(this.ComponentC);
+            this.ComponentC.AddDependencyOn(this.ComponentD);
         }
 
         private void SetupClassDependencies()
         {
             var q = new Class("q");
             var r = new Class("r");
-            componentA.Add(q);
-            componentA.Add(r);
+            this.ComponentA.Add(q);
+            this.ComponentA.Add(r);
 
             var s = new Class("s");
-            componentB.Add(s);
+            this.ComponentB.Add(s);
 
             var t = new Class("t");
             var u = new Class("u");
-            componentC.Add(t);
-            componentC.Add(u);
+            this.ComponentC.Add(t);
+            this.ComponentC.Add(u);
 
             var v = new Class("v");
-            componentD.Add(v);
+            this.ComponentD.Add(v);
 
             q.AddDependencyOn(t);
             r.AddDependencyOn(u);
@@ -52,10 +52,10 @@ namespace TestData
 
         private void AddComponentsToSolution()
         {
-            Add(componentA);
-            Add(componentB);
-            Add(componentC);
-            Add(componentD);
+            Add(this.ComponentA);
+            Add(this.ComponentB);
+            Add(this.ComponentC);
+            Add(this.ComponentD);
         }
     }
 }

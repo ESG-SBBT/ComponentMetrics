@@ -2,7 +2,6 @@ using System;
 using System.Linq;
 using ComponentMetrics.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TestData;
 
 namespace ComponentCouplingMetrics.Test
 {
@@ -29,9 +28,7 @@ namespace ComponentCouplingMetrics.Test
             var component = new Component("c");
             component.Add(new Class("c1"));
 
-            var abstractness = new AbstractnessCalculator().CalculateFor(component);
-            
-            Assert.AreEqual(0, abstractness);
+            AssertAbstractness(component, 0);
         }
 
         [TestMethod]
@@ -40,9 +37,7 @@ namespace ComponentCouplingMetrics.Test
             var component = new Component("c");
             component.Add(Class.Abstract("c1"));
             
-            var abstractness = new AbstractnessCalculator().CalculateFor(component);
-            
-            Assert.AreEqual(1, abstractness);        
+            AssertAbstractness(component, 1);
         }
 
         [TestMethod]
@@ -54,9 +49,14 @@ namespace ComponentCouplingMetrics.Test
             component.Add(Class.Abstract("c3"));
             component.Add(new Class("c4"));
             
-            var abstractness = new AbstractnessCalculator().CalculateFor(component);
+            AssertAbstractness(component, 0.333);
+        }
+
+        private void AssertAbstractness(Component component, double expectedAbstractness)
+        {
+            var actualAbstractness = new AbstractnessCalculator().CalculateFor(component);
             
-            Assert.AreEqual(0.333, abstractness, 0.001);   
+            Assert.AreEqual(expectedAbstractness, actualAbstractness, 0.001);
         }
     }
 

@@ -46,5 +46,21 @@ namespace ComponentMetrics.Entities.Test
             var dependency = cls1.Dependencies.Single();
             Assert.AreSame(cls2, dependency);
         }
+
+        [TestMethod]
+        public void ConcreteClass()
+        {
+            var cls = new Class("ConcreteClass");
+            
+            Assert.IsFalse(cls.IsAbstract);
+        }
+
+        [TestMethod]
+        public void AbstractClass()
+        {
+            var cls = Class.Abstract("AbstractClass");
+            
+            Assert.IsTrue(cls.IsAbstract);
+        }
     }
 }

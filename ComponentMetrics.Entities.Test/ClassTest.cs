@@ -62,5 +62,24 @@ namespace ComponentMetrics.Entities.Test
             
             Assert.IsTrue(cls.IsAbstract);
         }
+
+        [TestMethod]
+        public void GivenNoNamespace_FullnameIsClassName()
+        {
+            var cls = new Class("C");
+            
+            Assert.AreEqual(cls.Name, cls.FullName);
+        }
+
+
+        [TestMethod]
+        public void GivenNamespace_FullnameIsNamespaceAndClassName()
+        {
+            var cls = new Class("C");
+            cls.Namespace = "Ns";
+            
+            Assert.AreEqual("Ns.C", cls.FullName);
+        }
+
     }
 }

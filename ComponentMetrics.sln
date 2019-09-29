@@ -12,6 +12,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{03E0111F-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestData", "TestData\TestData.csproj", "{98A19B2C-1A8A-43FD-B31D-7F980EEFBEA2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backends", "Backends", "{C4DB387D-A916-4FB7-A1AC-CAD55FA60B22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentMetrics.Backend.DotNet", "ComponentMetrics.Backend.DotNet\ComponentMetrics.Backend.DotNet.csproj", "{FAA95C0B-AE72-49AE-AF7D-AC78A586009B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentMetrics.Gateways.Interfaces", "ComponentMetrics.Gateways.Interfaces\ComponentMetrics.Gateways.Interfaces.csproj", "{20AC4A0C-441B-4448-948B-952E27BFC403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentMetrics.Backend.DotNet.Test", "ComponentMetrics.Backend.DotNet.Test\ComponentMetrics.Backend.DotNet.Test.csproj", "{33DD90E0-4776-4D98-805B-8BD95A2B2C45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentMetric.Gateways.Test", "ComponentMetric.Gateways.Test\ComponentMetric.Gateways.Test.csproj", "{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,10 +48,29 @@ Global
 		{98A19B2C-1A8A-43FD-B31D-7F980EEFBEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98A19B2C-1A8A-43FD-B31D-7F980EEFBEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98A19B2C-1A8A-43FD-B31D-7F980EEFBEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAA95C0B-AE72-49AE-AF7D-AC78A586009B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA95C0B-AE72-49AE-AF7D-AC78A586009B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA95C0B-AE72-49AE-AF7D-AC78A586009B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA95C0B-AE72-49AE-AF7D-AC78A586009B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20AC4A0C-441B-4448-948B-952E27BFC403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20AC4A0C-441B-4448-948B-952E27BFC403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20AC4A0C-441B-4448-948B-952E27BFC403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20AC4A0C-441B-4448-948B-952E27BFC403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33DD90E0-4776-4D98-805B-8BD95A2B2C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33DD90E0-4776-4D98-805B-8BD95A2B2C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33DD90E0-4776-4D98-805B-8BD95A2B2C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33DD90E0-4776-4D98-805B-8BD95A2B2C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{354FD4FE-538F-4746-A38B-9A277C147F7E} = {03E0111F-0418-43D5-82E1-A7BFB8E37A7E}
 		{BDA405B9-5E26-4395-B5DA-889B7441A4A1} = {03E0111F-0418-43D5-82E1-A7BFB8E37A7E}
 		{98A19B2C-1A8A-43FD-B31D-7F980EEFBEA2} = {03E0111F-0418-43D5-82E1-A7BFB8E37A7E}
+		{FAA95C0B-AE72-49AE-AF7D-AC78A586009B} = {C4DB387D-A916-4FB7-A1AC-CAD55FA60B22}
+		{33DD90E0-4776-4D98-805B-8BD95A2B2C45} = {C4DB387D-A916-4FB7-A1AC-CAD55FA60B22}
+		{95F8C11F-B6F8-4F9D-8C27-A0F720BC11C5} = {03E0111F-0418-43D5-82E1-A7BFB8E37A7E}
 	EndGlobalSection
 EndGlobal

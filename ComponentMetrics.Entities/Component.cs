@@ -32,6 +32,7 @@ namespace ComponentMetrics.Entities
                 throw new DuplicateClass();
             
             this.classes.Add(cls);
+            cls.Namespace = this.Name;
         }
 
         public void AddDependencyOn(Component component)

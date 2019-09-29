@@ -7,6 +7,8 @@ namespace ComponentMetrics.Entities
     public class Class
     {
         public string Name { get; }
+        public string FullName => string.IsNullOrEmpty(this.Namespace) ? this.Name : $"{this.Namespace}.{this.Name}";
+        internal string Namespace { get; set; }
         public bool IsAbstract { get; private set; }
 
         public ImmutableList<Class> Dependencies => ImmutableList.CreateRange(this.dependencies);

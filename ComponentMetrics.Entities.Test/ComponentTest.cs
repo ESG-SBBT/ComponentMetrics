@@ -66,7 +66,18 @@ namespace ComponentMetrics.Entities.Test
             
             Assert.AreSame(cls, component.Classes.Single());
         }
-        
+
+        [TestMethod]
+        public void AddClass_SetsNamespace()
+        {
+            var cls = new Class("c1");
+            
+            var component = new Component("test component");
+            component.Add(cls);
+            
+            Assert.AreEqual($"{component.Name}", cls.Namespace);
+        }
+
         [TestMethod]
         [ExpectedException(typeof(Component.DuplicateClass))]
         public void GivenClassWithSameName_AddClassFails()

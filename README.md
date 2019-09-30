@@ -1,0 +1,1 @@
+![travis](https://travis-ci.org/sbradl/ComponentMetrics.svg?branch=master)

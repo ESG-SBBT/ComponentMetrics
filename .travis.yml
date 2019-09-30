@@ -1,0 +1,7 @@
+language: csharp
+solution: ComponentMetrics.sln
+mono: none
+dotnet: 2.2.402
+script: 
+  - dotnet restore
+  - dotnet test
